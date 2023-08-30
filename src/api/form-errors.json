@@ -1,0 +1,9 @@
+{
+    "first-name": "Please fill in your first name",
+    "last-name": "Please fill in your last name",
+    "email": "Please fill in your email address",
+    "guest-count": "Please set guest count",
+    "check-in-date": "Please select check-in & check-out date",
+    "check-out-date": "Please select check-in & check-out date",
+    "disabled-date": "Your date range includes disabled dates"
+  }

@@ -1,0 +1,12 @@
+dist/
+
+/.idea
+/.vscode
+/.vagrant
+.DS_Store
+.env
+
+node_modules/
+package-lock.json
+
+*.log

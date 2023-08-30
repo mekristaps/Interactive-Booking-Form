@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import "_mixins";
+@import "_variables";
+@import 'vanillajs-datepicker/sass/datepicker';
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+  background-color: $color-bg;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+	@include container();
+}
+
+.booking-page {
+	padding: 48px 0;
+
+	.container {
+		@include flex(column,center,center,null);
+	}
+
+	.booking-wrapper {
+		@include flex(row,center,center,null);
+		height: 442px;
+		position: relative;
+
+		&.last-step {
+
+			> div:first-of-type {
+				width: 40%;
+			}
+
+			form {
+				border-radius: 0;
+				width: 0;
+				width: 0;
+				padding: 0;
+			}
+		}
+	}
+
+	.booking-actions {
+		@include flex(row,center,center,20px);
+	}
+
+	.booking-room-select {
+		@include flex(row,null,null,null);
+		background-color: $color-booking-rooms-bg;
+		width: fit-content;
+		border-radius: 12px 0 0 12px;
+		box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+		height: 90%;
+		width: 40%;
+		overflow: hidden;
+		position: relative;
+		transition: all 0.2s ease-in-out;
+
+		&.active-step {
+			white-space: nowrap;
+			overflow: hidden;
+			position: relative;
+			height: 100%;
+			width: 90%;
+			border-radius: 12px;
+		}
+
+		.room {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			flex: 1;
+			min-width:0;
+			overflow:hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			transition: all 0.4s ease-in-out;
+
+			&:hover {
+				cursor: pointer;
+				flex-basis: 100%;
+			}
+
+			&.selected {
+				flex-basis: 100%;
+				transition: all 0.1s ease-in-out;
+			}
+
+			&-title {
+				@include flex(row,center,center,null);
+				@include font-medium;
+				color: $color-booking-room-title;
+				font-size: 16px;
+				line-height: 20px;
+				position: absolute;
+				bottom: 0;
+				height: 100px;
+				width: 100%;
+				background: rgb(255,255,255);
+				background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+				background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+
+	.booking-form {
+		background-color: $color-booking-form-bg;
+		width: fit-content;
+		padding: 0;
+		border-radius: 0 12px 12px 0;
+		box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 43px 100px  rgba($color-booking-form-shadow, .18);
+		height: 90%;
+		width: 0;
+		overflow: hidden;
+		white-space: nowrap;
+		transition: all 0.4s ease-in-out;
+		
+		&.active-step {
+			position: relative;
+			height: 100%;
+			width: 60%;
+			border-radius: 12px;
+			padding: 32px;
+			overflow: visible;
+
+			.form-field-group {
+				flex-wrap: unset;
+			}
+
+			.booking-actions {
+				opacity: 1;
+			}
+		}
+
+		.form-field-group {
+			flex-wrap: wrap;
+		}
+
+		.booking-actions {
+			opacity: 0;
+			transition: all 0.4s ease-in-out;
+		}
+	}
+
+	.booking-totals {
+		@include flex(column,null,null,16px);
+		background-color: $color-booking-totals-bg;
+		width: fit-content;
+		border-radius: 0 12px 12px 0;
+		box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+		height: 90%;
+		width: 0;
+		padding: 0;
+		overflow: hidden;
+
+		&.active-step {
+			white-space: nowrap;
+			overflow: hidden;
+			position: relative;
+			height: 100%;
+			width: 60%;
+			border-radius: 12px;
+			padding: 32px;
+
+			.booking-totals-group,
+			.booking-total {
+				opacity: 1;
+			}
+		}
+
+		&-group {
+			@include flex(column,null,null,16px);
+			border-bottom: 1px solid $color-booking-totals-group-border;
+			padding: 0 0 16px;
+			opacity: 0;
+		}
+
+		.booking-total {
+			@include flex(row,space-between,null,8px);
+			opacity: 0;
+
+			&-label {
+				@include font-medium;
+				color: $color-booking-total-label;
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			&-value {
+				@include font-medium;
+				color: $color-booking-total-value;
+				font-size: 16px;
+				line-height: 20px;
+
+				&.total {
+					@include font-bold;
+					font-size: 18px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
+}
+
+.form-field {
+	@include flex(column,null,null,12px);
+	margin-bottom: 32px;
+	width: 100%;
+	position: relative;
+
+	&.has-error {
+
+		input {
+			border-color: rgba($color-input-border-error, 0.7);
+			box-shadow: 0px 0px 0 3px rgba($color-input-counter-shadow-error, .3);
+		}
+	}
+
+	&-group {
+		@include flex(row,null,center,12px);
+		width: 100%;
+	}
+
+	&-dates {
+		@include flex(row,null,center,12px);
+		width: 100%;
+
+		.form-field.has-error:last-child .error-message {
+			display: none;
+		}
+
+		.datepicker-grid {
+
+			.discount {
+				background-color: $color-input-date-picker-discount-day-bg;
+				color: $color-input-date-picker-discount-day-text;
+			}
+
+			.disabled.discount {
+				background-color: unset;
+				color: gainsboro;
+			}
+		}
+	}
+
+	.input-wrapper {
+		@include flex(row,null,center,4px);
+	}
+
+	&.counter {
+
+		.input-wrapper {
+			width: 188px;
+		}
+
+		.counter-button {
+			@include font-medium;
+			color: $color-input-counter-text;
+			font-size: 16px;
+			line-height: 20px;
+			border-radius: 6px;
+			border: 1px solid $color-input-counter-border;
+			background-color: $color-input-counter-bg;
+			padding: 12px 24px;
+			cursor: pointer;
+			transition: border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+
+			&:hover {
+				border-color: rgba($color-input-counter-border-focus, 0.7);
+				box-shadow: 0px 0px 0 3px rgba($color-input-counter-shadow, .3);
+			}
+		}
+
+		input {
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+	
+	label {
+		@include font-medium;
+		color: $color-input-label;
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	input {
+		@include font-medium;
+		color: $color-input-text;
+		font-size: 16px;
+		line-height: 20px;
+		border-radius: 6px;
+		border: 1px solid $color-input-border;
+		background-color: $color-input-bg;
+		padding: 12px 24px;
+		width: 100%;
+		outline: none;
+		resize: none;
+		appearance: none;
+		transition: border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+
+		&::placeholder {
+			@include font-regular;
+			color: $color-input-placeholder;
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		&:focus {
+			border-color: rgba($color-input-border-focus, 0.7);
+			box-shadow: 0px 0px 0 3px rgba($color-input-shadow, .3);
+		}
+	}
+
+	.error-message {
+		@include font-regular;
+		color: $color-input-error-message;
+		font-size: 14px;
+		line-height: 18px;
+		position: absolute;
+		bottom: -20px;
+		opacity: 0;
+		transition: all 0.2s ease-in-out;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}
+
+.button-primary {
+	text-align: center;
+	font-size: 16px;
+	border-radius: 6px;
+	padding: 14px 32px;
+	border: none;
+	font-weight: 600;
+	background-color: #6a64f1;
+	color: white;
+	cursor: pointer;
+}

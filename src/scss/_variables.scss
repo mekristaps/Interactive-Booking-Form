@@ -1,0 +1,73 @@
+// LAYOUT
+$max-container-width: 1216px;
+$container-padding: 16px;
+
+// COLORS
+$color-gray-01: #F5F5F5;
+$color-gray-02: #E0E0E0;
+$color-gray-03: #6B7280;
+$color-gray-04: #D9D9D9;
+
+$color-blue-01: #D6E8DB;
+$color-blue-02: #F6FFDE;
+$color-blue-03: #6A64F1;
+$color-blue-04: #4A90E2;
+$color-blue-05: #4468C2;
+
+$color-yellow-01: #F1C376;
+
+$color-red-01: #E24A4A;
+$color-red-02: #F17676;
+
+$color-cream-01: #F7E6C4;
+$color-cream-02: #FFF4F4;
+
+$color-green-01: #606C5D;
+$color-green-02: #8DB48E;
+$color-green-03: #4D724D;
+
+$color-dark-01: #171717;
+$color-dark-02: #07074D;
+
+$color-white: #FFFFFF;
+
+
+$bgColor: #f7fcff;
+$labelColor: #8b9aa6;
+$h4Color: #8b9aa6;
+$colorLight: #8b9aa6;
+$colorDark: #233646;
+$cornflowerBlue: #4a90e2;
+$borderColor: #d9d9d9;
+
+// Background color
+$color-bg: $color-blue-02;
+
+// Booking form
+$color-booking-rooms-bg: $color-white;
+$color-booking-room-title: $color-white;
+$color-booking-form-bg: $color-white;
+$color-booking-form-shadow: $color-blue-05;
+$color-booking-totals-bg: $color-white;
+$color-booking-total-label: $color-green-01;
+$color-booking-total-value: $color-dark-02;
+$color-booking-totals-group-border: $color-gray-04;
+
+// Inputs
+$color-input-label: $color-dark-02;
+$color-input-border: $color-gray-04;
+$color-input-border-error: $color-red-01;
+$color-input-shadow: $color-blue-04;
+$color-input-border-focus: $color-blue-04;
+$color-input-bg: $color-white;
+$color-input-placeholder: $color-green-01;
+$color-input-text: $color-gray-03;
+$color-input-counter-border: $color-gray-04;
+$color-input-counter-border-focus: $color-blue-04;
+$color-input-counter-shadow: $color-blue-04;
+$color-input-counter-shadow-error: $color-red-01;
+$color-input-counter-bg: $color-white;
+$color-input-counter-text: $color-gray-03;
+$color-input-error-message: $color-red-01;
+$color-input-date-picker-discount-day-text: $color-white;
+$color-input-date-picker-discount-day-bg: $color-yellow-01;

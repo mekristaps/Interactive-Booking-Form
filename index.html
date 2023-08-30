@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Booking</title>
+        <link rel="stylesheet" href="src/scss/app.scss">
+    </head>
+    <body>
+        <main class="booking-page">
+            <div class="container">
+                <div class="booking-wrapper" data-booking="/src/api/">
+                    <div class="booking-room-select active-step" data-step="1">
+                        <div class="room" data-room="delux-01" data-booking-action="forward">
+                            <div class="room-title">Delux Room</div>
+                            <img src="https://images.pexels.com/photos/1591361/pexels-photo-1591361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Delux Room" />
+                        </div>
+                        <div class="room" data-room="regular-01" data-booking-action="forward">
+                            <div class="room-title">Regular Room</div>
+                            <img src="https://images.pexels.com/photos/1861153/pexels-photo-1861153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Regular Room" />
+                        </div>
+                        <div class="room" data-room="economy-01" data-booking-action="forward">
+                            <div class="room-title">Economy Room</div>
+                            <img src="https://images.pexels.com/photos/2403017/pexels-photo-2403017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Economy Room" />
+                        </div>
+                    </div>
+                    <form class="booking-form" data-step="2" data-errors="/src/api/form-errors.json">
+                        <div class="form-field-group">
+                            <div class="form-field">
+                                <label for="booking-first-name">First name</label>
+                                <input type="text" name="first-name" id="booking-first-name" placeholder="First name" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="booking-last-name">Last name</label>
+                                <input type="text" name="last-name" id="booking-last-name" placeholder="Last name" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-field-group">
+                            <div class="form-field">
+                                <label for="booking-phone-number">Phone number</label>
+                                <input type="text" name="phone-number" id="booking-phone-number" placeholder="Phone number">
+                            </div>
+                            <div class="form-field">
+                                <label for="booking-email">E-mail</label>
+                                <input type="email" name="email" id="booking-email" placeholder="E-mail" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-field-group">
+                            <div class="form-field counter" data-booking-guests>
+                                <label for="booking-guest-count">Guest count</label>
+                                <div class="input-wrapper">
+                                    <button class="counter-button" data-booking-guests-decrease>-</button>
+                                    <input type="text" name="guest-count" id="booking-guest-count" required>
+                                    <button class="counter-button" data-booking-guests-increase>+</button>
+                                </div>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-field-dates" data-booking-dates>
+                                <div class="form-field">
+                                    <label for="booking-check-in-date">Check-in date</label>
+                                    <input type="text" name="check-in-date" id="booking-check-in-date" autocomplete="off" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="booking-check-out-date">Check-out date</label>
+                                    <input type="text" name="check-out-date" id="booking-check-out-date" autocomplete="off" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="button-primary" data-booking-action="back">Back</button>
+                            <button class="button-primary" data-booking-action="forward">Next</button>
+                        </div>
+                    </form>
+                    <div class="booking-totals" data-step="3">
+                        <div class="booking-totals-group">
+                            <div class="booking-total" data-booking-information="roomName">
+                                <div class="booking-total-label">Room type:</div>
+                                <div class="booking-total-value"></div>
+                            </div>
+                            <div class="booking-total" data-booking-information="guestFullName">
+                                <div class="booking-total-label">Guest:</div>
+                                <div class="booking-total-value"></div>
+                            </div>
+                            <div class="booking-total" data-booking-information="nightCount">
+                                <div class="booking-total-label">Nights:</div>
+                                <div class="booking-total-value"></div>
+                            </div>
+                            <div class="booking-total" data-booking-information="selectedDates">
+                                <div class="booking-total-label">Selected dates:</div>
+                                <div class="booking-total-value"></div>
+                            </div>
+                        </div>
+                        <div class="booking-totals-group">
+                            <div class="booking-total" data-booking-information="totalNights">
+                                <div class="booking-total-label">Total for <span></span> nights:</div>
+                                <div class="booking-total-value"></div>
+                            </div>
+                            <div class="booking-total" data-booking-information="totalGuests">
+                                <div class="booking-total-label">Additional <span></span> guests:</div>
+                                <div class="booking-total-value"></div>
+                            </div>
+                        </div>
+                        <div class="booking-total" data-booking-information="totalWVAT">
+                            <div class="booking-total-label">Total without VAT:</div>
+                            <div class="booking-total-value"></div>
+                        </div>
+                        <div class="booking-total" data-booking-information="total">
+                            <div class="booking-total-label">Total:</div>
+                            <div class="booking-total-value total">280 €</div>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="button-primary" data-booking-action="back">Back</button>
+                            <button class="button-primary" data-booking-action="forward">Proceed to payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="src/js/app.ts"></script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "extends": "stylelint-config-recommended-scss",
+    "ignoreFiles": "./vendor/**/**.*",
+    "rules": {
+        "indentation": 4,
+        "string-quotes": "double",
+        "no-duplicate-selectors": true,
+        "color-hex-case": "upper",
+        "color-hex-length": "long",
+        "no-missing-end-of-source-newline": null,
+        "max-nesting-depth": 10,
+        "selector-max-id": 0,
+        "property-case": "lower",
+        "selector-list-comma-newline-after": "always",
+        "declaration-block-semicolon-newline-after": "always",
+        "declaration-colon-space-after": "always",
+        "declaration-colon-space-before": "never",
+        "declaration-block-semicolon-space-before": "never",
+        "block-opening-brace-newline-after": "always",
+        "block-opening-brace-space-before": "always",
+        "rule-empty-line-before": "always",
+        "no-descending-specificity": null,
+        "scss/comment-no-empty": null,
+        "scss/operator-no-unspaced": null,
+        "scss/at-if-no-null": null,
+        "scss/no-global-function-names": null
+    }
+}

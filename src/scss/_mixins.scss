@@ -1,0 +1,42 @@
+@mixin container($max-width: $max-container-width, $padding: $container-padding) {
+    max-width: $max-width + (2 * $padding);
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+@mixin flex($direction: row, $justify: null, $align: null, $gap: null) {
+    display: flex;
+    flex-direction: $direction;
+  
+    @if $justify != null {
+      justify-content: $justify;
+    }
+  
+    @if $align != null {
+      align-items: $align;
+    }
+  
+    @if $gap != null {
+        gap: $gap;
+    }
+}
+
+// FONTS
+@mixin font-regular {
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin font-medium {
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin font-bold {
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+}
